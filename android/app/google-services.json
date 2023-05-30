@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "1015216276954",
+    "project_id": "le-bon-randonneur",
+    "storage_bucket": "le-bon-randonneur.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1015216276954:android:d50b1957f69e7571a62ce3",
+        "android_client_info": {
+          "package_name": "com.example.flutter_application_randonneur"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1015216276954-ig5kc505h9tv2m8c6ar3lll15geipslk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBs6gv7uHJX2InpQ6OBs7po_c6lbulx5yo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1015216276954-ig5kc505h9tv2m8c6ar3lll15geipslk.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1015216276954-8c5rl8n5u59l9v1e4hqppu6dlc2h4r28.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.flutterApplicationRandonneur"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
