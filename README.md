@@ -1,6 +1,6 @@
-#Le Bon Randonneur
+# Le Bon Randonneur
 
-Le Bon Randonneur application
+Le Bon Randonneur - My Digital Project
 
 ## About
 Le bon randonneur est un service de location en C to C de matériel de camping et de sorties en plein air
