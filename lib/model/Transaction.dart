@@ -1,22 +1,34 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class Transaction {
-  String rentId;
-  String offerId;
-  String ownerId;
+  late String rentId;
+  late String offerId;
+  late String ownerId;
   late String renterId;
-  double price;
+  late double price;
   DateTime? timestamp;
   late String status;
-  String token;
+  late String token;
 
-  Transaction({
-    required this.rentId,
-    required this.offerId,
-    required this.ownerId,
-    required this.renterId,
-    required this.price,
-    required this.timestamp,
-    required this.token,
-  });
+  Transaction(DocumentSnapshot snapshot) {
+    rentId = snapshot.id; //id document
+    Map<String, dynamic> map = snapshot.data() as Map<String, dynamic>;
+    offerId = map['offerId'];
+    ownerId = map['ownerId'];
+    renterId = map['renterId'];
+    price = map['price'];
+    timestamp = (map['timestamp'] as Timestamp).toDate();
+    token = map['token'];
+  }
+
+  Transaction.empty() {
+    rentId = "";
+    offerId = "";
+    ownerId = "";
+    renterId = "";
+    price = 0.0;
+    price = 0.0;
+    timestamp = DateTime.now();
+    token = "";
+  }
 }
