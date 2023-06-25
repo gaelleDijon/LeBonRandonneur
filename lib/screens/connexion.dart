@@ -64,8 +64,16 @@ class _ConnexionState extends State<Connexion> {
               Container(
                 width: MediaQuery.of(context).size.width / 1.1,
                 padding: const EdgeInsets.fromLTRB(20, 20, 20, 0),
-                child: TextField(
+                child: TextFormField(
                   controller: mail,
+                  validator: (value) {
+                    if (value == null ||
+                        value.isEmpty ||
+                        value.isValidEmail() == false) {
+                      return 'Entrez un mail valide';
+                    }
+                    return null;
+                  },
                   style: const TextStyle(color: Colors.white),
                   decoration: InputDecoration(
                     border: OutlineInputBorder(
@@ -79,8 +87,14 @@ class _ConnexionState extends State<Connexion> {
               Container(
                 width: MediaQuery.of(context).size.width / 1.1,
                 padding: const EdgeInsets.fromLTRB(20, 20, 20, 0),
-                child: TextField(
+                child: TextFormField(
                   controller: password,
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Entrez un mot de  passe';
+                    }
+                    return null;
+                  },
                   style: const TextStyle(color: Colors.white),
                   obscureText: true,
                   decoration: InputDecoration(
@@ -131,7 +145,15 @@ class _ConnexionState extends State<Connexion> {
                           );
                         }),
                       );
-                    });
+                    }).catchError(
+                      (e) {
+                        print("Une erreur s'est produite: $e");
+                        //afficher le message d'erreur à l'utilisateur
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(content: Text("$e")),
+                        );
+                      },
+                    );
                   },
                 ),
               ),
@@ -162,5 +184,13 @@ class _ConnexionState extends State<Connexion> {
         ),
       ),
     );
+  }
+}
+
+extension EmailValidator on String {
+  bool isValidEmail() {
+    return RegExp(
+            r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$')
+        .hasMatch(this);
   }
 }
